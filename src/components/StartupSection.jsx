@@ -4,44 +4,53 @@ import { ArrowRight } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 
 const fade = {
-  hidden: { opacity: 0, y: 20 },
+  hidden: { opacity: 0, y: 24 },
   visible: (i = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { delay: i * 0.15, duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+    transition: { delay: i * 0.15, duration: 1, ease: [0.25, 0.1, 0.25, 1] },
   }),
 }
 
-const services = [
+const pillars = [
   {
     title: '法務',
     en: 'Legal',
+    lead: '契約から紛争解決まで、\nスタートアップの成長を法で守る。',
     items: [
       '契約書レビュー・作成',
       '株主間契約（SHA）',
       '知財出願戦略',
       '訴訟・紛争対応',
     ],
+    image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&h=900&fit=crop',
+    imageAlt: '法務 — 契約書を精査する弁護士',
   },
   {
     title: '会計',
     en: 'Accounting',
+    lead: '財務基盤の構築から監査対応まで、\n数字の信頼性を担保する。',
     items: [
       '税務申告・節税対策',
       '財務デューデリジェンス',
       '監査対応支援',
       'CFOアドバイザリー',
     ],
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&h=900&fit=crop',
+    imageAlt: '会計 — 財務分析とデータ',
   },
   {
     title: '投資',
     en: 'Investment',
+    lead: 'エンジェル投資家の視座で、\n資金戦略を共に描く。',
     items: [
       'J-KISS / SO設計',
       'タームシート交渉',
       'バリュエーション算定',
       'エンジェル投資家の視点',
     ],
+    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=900&fit=crop',
+    imageAlt: '投資 — 成長戦略の議論',
   },
 ]
 
@@ -50,29 +59,33 @@ const phases = [
     id: 'seed',
     label: 'Seed',
     title: '創業期',
-    desc: '会社設立からファーストラウンドまで。定款作成、創業者間契約、初期税務体制を整備。',
+    desc: '会社設立からファーストラウンドまで。定款作成、創業者間契約、初期税務体制を整備します。',
     tasks: ['定款作成・登記サポート', '創業者間契約（SHA）', 'J-KISS / SO設計', '初期税務体制構築'],
+    image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop',
   },
   {
     id: 'seriesA',
     label: 'Series A',
     title: '成長期',
-    desc: '資金調達とプロダクト拡大。投資契約書のドラフトから知財戦略まで。',
+    desc: '資金調達とプロダクト拡大。投資契約書のドラフトから知財戦略まで一気通貫で支援します。',
     tasks: ['タームシート交渉', '投資契約書レビュー', '利用規約・PP', '法務デューデリジェンス'],
+    image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=600&fit=crop',
   },
   {
     id: 'seriesB',
     label: 'Series B+',
     title: '拡大期',
-    desc: 'M&A・海外展開・コンプライアンス体制の強化。',
+    desc: 'M&A・海外展開・コンプライアンス体制の強化。事業のスケールに合わせた法務基盤を構築します。',
     tasks: ['M&Aデューデリジェンス', '海外進出法務', 'コンプライアンス体制', 'SO再設計'],
+    image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop',
   },
   {
     id: 'ipo',
     label: 'IPO',
     title: '上場準備',
-    desc: '証券審査から上場後ガバナンスまで、完全伴走。',
+    desc: '証券審査から上場後ガバナンスまで、完全に伴走します。',
     tasks: ['Ⅰの部・Ⅱの部作成', '内部統制（J-SOX）', '証券会社対応', '開示書類レビュー'],
+    image: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&h=600&fit=crop',
   },
 ]
 
@@ -82,88 +95,131 @@ export default function StartupSection() {
 
   return (
     <section className="bg-stone-50 overflow-hidden">
-      {/* Full-bleed opening image — ドーンと */}
+
+      {/* ━━━ Opening full-bleed image ━━━ */}
       <motion.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
         variants={fade}
       >
-        <div className="w-full overflow-hidden">
-          <img
-            src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&h=900&fit=crop"
-            alt="チームの議論 — スタートアップチームがプロダクトを議論するシーン"
-            className="w-full h-[40vh] md:h-[50vh] lg:h-[55vh] object-cover"
-          />
-        </div>
+        <img
+          src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&h=900&fit=crop"
+          alt="スタートアップチームの議論"
+          className="w-full h-[45vh] md:h-[55vh] lg:h-[60vh] object-cover"
+        />
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24">
-        {/* Section header */}
+      {/* ━━━ Section header ━━━ */}
+      <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-28 md:py-44"
+          className="py-32 md:py-52"
         >
-          <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
+          <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-10">
             For Startups
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.6] tracking-[0.04em] mb-8">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-[2.75rem] font-light text-stone-900 leading-[1.7] md:leading-[1.6] tracking-[0.04em] mb-10">
             格式高きパートナーとして、
             <br />
             成長の全局面を支える。
           </h2>
           <div className="divider-gold" />
+          <p className="text-stone-500 text-sm md:text-base leading-[2.4] tracking-[0.06em] mt-12 max-w-lg">
+            法務・会計・投資の三領域を横断し、
+            創業からIPOまでワンストップで伴走します。
+          </p>
         </motion.div>
+      </div>
 
-        {/* Three Pillars */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-20 pb-28 md:pb-44 border-b border-stone-200">
-          {services.map(({ title, en, items }, i) => (
-            <motion.div
-              key={title}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              custom={i}
-              variants={fade}
-            >
-              <p className="text-warm-500 text-[10px] tracking-[0.4em] uppercase mb-3">
-                {en}
-              </p>
-              <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em] mb-5">
-                {title}
-              </h3>
-              <div className="w-8 h-px bg-stone-300 mb-8" />
-              <ul className="space-y-4">
-                {items.map((item) => (
-                  <li
-                    key={item}
-                    className="text-stone-500 text-sm tracking-[0.05em] leading-[2] pl-5 relative before:absolute before:left-0 before:top-[0.65em] before:w-2 before:h-px before:bg-warm-400"
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Growth Roadmap */}
-        <div className="py-28 md:py-44">
+      {/* ━━━ Three Pillars — 縦に展開、各ピラーに写真 ━━━ */}
+      {pillars.map(({ title, en, lead, items, image, imageAlt }, idx) => (
+        <div key={en}>
+          {/* 写真 — フルブリード */}
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-20"
           >
-            <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
+            <img
+              src={image}
+              alt={imageAlt}
+              className="w-full h-[35vh] md:h-[45vh] lg:h-[50vh] object-cover"
+            />
+          </motion.div>
+
+          {/* コンテンツ */}
+          <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-44">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: '-60px' }}
+              variants={fade}
+            >
+              {/* Number + En label */}
+              <div className="flex items-baseline gap-6 mb-8">
+                <span className="font-serif text-4xl md:text-5xl text-warm-300 font-light tracking-wider">
+                  {String(idx + 1).padStart(2, '0')}
+                </span>
+                <span className="text-warm-500 text-[10px] tracking-[0.4em] uppercase">
+                  {en}
+                </span>
+              </div>
+
+              {/* Title */}
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-stone-900 tracking-[0.06em] mb-8">
+                {title}
+              </h3>
+
+              <div className="w-10 h-px bg-warm-400 mb-10" />
+
+              {/* Lead copy */}
+              <p className="text-stone-600 text-base md:text-lg leading-[2.4] tracking-[0.06em] whitespace-pre-line mb-16 max-w-md">
+                {lead}
+              </p>
+
+              {/* Items — ゆったり縦並び */}
+              <ul className="space-y-6 max-w-md">
+                {items.map((item, i) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-6"
+                  >
+                    <span className="font-serif text-warm-300 text-sm tracking-wider shrink-0">
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                    <span className="text-stone-600 text-sm md:text-base tracking-[0.06em] leading-[2]">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+      ))}
+
+      {/* ━━━ Growth Roadmap ━━━ */}
+      <div className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-32 md:py-52">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fade}
+            className="mb-24"
+          >
+            <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-10">
               Growth Roadmap
             </p>
-            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em] mb-6">
-              創業からIPOまで、伴走する。
+            <h3 className="font-serif text-xl md:text-2xl lg:text-3xl font-light text-stone-900 tracking-[0.04em] leading-[1.7] mb-8">
+              創業からIPOまで、
+              <br />
+              伴走する。
             </h3>
             <div className="divider" />
           </motion.div>
@@ -175,13 +231,13 @@ export default function StartupSection() {
             viewport={{ once: true }}
             custom={1}
             variants={fade}
-            className="flex gap-2 mb-14 overflow-x-auto scrollbar-hide"
+            className="flex gap-3 mb-16 overflow-x-auto scrollbar-hide"
           >
             {phases.map(({ label }, i) => (
               <button
                 key={label}
                 onClick={() => setActivePhase(i)}
-                className={`relative px-6 py-3 text-sm tracking-[0.15em] whitespace-nowrap transition-colors duration-300 ${
+                className={`relative px-6 py-3.5 text-sm tracking-[0.2em] whitespace-nowrap transition-colors duration-300 ${
                   i === activePhase
                     ? 'text-stone-900'
                     : 'text-stone-400 hover:text-stone-600'
@@ -203,21 +259,29 @@ export default function StartupSection() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activePhase}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -8 }}
-              transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
-              className="border-t border-stone-200 pt-12"
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+              {/* Phase image */}
+              <div className="overflow-hidden mb-14">
+                <img
+                  src={phases[activePhase].image}
+                  alt={phases[activePhase].title}
+                  className="w-full h-48 md:h-64 lg:h-72 object-cover"
+                />
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
                 <div>
-                  <p className="text-warm-500 text-xs tracking-[0.3em] uppercase mb-3">
+                  <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-4">
                     {phases[activePhase].label}
                   </p>
-                  <h4 className="font-serif text-lg md:text-xl font-light text-stone-900 tracking-[0.04em] mb-5">
+                  <h4 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em] mb-6">
                     {phases[activePhase].title}
                   </h4>
-                  <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em] mb-10">
+                  <p className="text-stone-500 text-sm md:text-base leading-[2.4] tracking-[0.06em] mb-12">
                     {phases[activePhase].desc}
                   </p>
                   <button
@@ -228,14 +292,14 @@ export default function StartupSection() {
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-                <div>
-                  <ul className="space-y-6">
+                <div className="flex items-start">
+                  <ul className="space-y-8">
                     {phases[activePhase].tasks.map((task, i) => (
-                      <li key={task} className="flex items-start gap-5">
-                        <span className="font-serif text-warm-400 text-sm tracking-wider mt-0.5">
+                      <li key={task} className="flex items-start gap-6">
+                        <span className="font-serif text-warm-300 text-lg tracking-wider shrink-0">
                           {String(i + 1).padStart(2, '0')}
                         </span>
-                        <span className="text-stone-600 text-sm leading-[2] tracking-[0.05em]">
+                        <span className="text-stone-600 text-sm md:text-base leading-[2.2] tracking-[0.06em]">
                           {task}
                         </span>
                       </li>
@@ -246,30 +310,39 @@ export default function StartupSection() {
             </motion.div>
           </AnimatePresence>
         </div>
+      </div>
 
-        {/* Second full-bleed image */}
+      {/* ━━━ Closing full-bleed image ━━━ */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fade}
+      >
+        <img
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&h=800&fit=crop"
+          alt="都市のスカイライン — 成長の象徴"
+          className="w-full h-[40vh] md:h-[50vh] lg:h-[55vh] object-cover"
+        />
+      </motion.div>
+
+      {/* ━━━ CTA ━━━ */}
+      <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="-mx-6 md:-mx-16 lg:-mx-24 mb-28 md:mb-36"
+          className="text-center py-32 md:py-48"
         >
-          <img
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1800&h=800&fit=crop"
-            alt="都市の高層ビル — 成長を象徴するスカイライン"
-            className="w-full h-[35vh] md:h-[45vh] lg:h-[50vh] object-cover"
-          />
-        </motion.div>
-
-        {/* CTA */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fade}
-          className="text-center pb-28 md:pb-44"
-        >
+          <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-10">
+            Contact Us
+          </p>
+          <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.06em] leading-[1.7] mb-12">
+            まずはお気軽に、
+            <br />
+            ご相談ください。
+          </h3>
           <button
             onClick={() => setShowContact(true)}
             className="group inline-flex items-center gap-4 text-stone-900 hover:text-warm-700 transition-colors"
@@ -279,7 +352,7 @@ export default function StartupSection() {
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>
-          <div className="divider-gold mx-auto mt-8" />
+          <div className="divider-gold mx-auto mt-10" />
         </motion.div>
       </div>
     </section>
