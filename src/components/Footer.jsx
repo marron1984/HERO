@@ -4,7 +4,7 @@ export default function Footer() {
   return (
     <footer className="bg-warm-50 border-t border-stone-200">
       {/* Main content */}
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 pt-[8rem] md:pt-[12rem] pb-[8rem] md:pb-[6rem]">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 pt-[10rem] md:pt-[16rem] pb-[10rem] md:pb-[8rem]">
         {/* Top: Logo + tagline */}
         <div className="mb-[6rem] md:mb-[8rem]">
           <span className="font-serif text-xl md:text-2xl tracking-[0.3em] text-stone-800 font-light">

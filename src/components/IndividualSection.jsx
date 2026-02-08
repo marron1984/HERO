@@ -92,18 +92,18 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-[10rem] md:py-[18rem]"
+          className="py-[14rem] md:py-[26rem]"
         >
-          <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-10">
+          <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-16">
             For Individuals
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.6] tracking-[0.04em] mb-10">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.8] tracking-[0.06em] mb-14">
             あなたの権利を、
             <br />
             全力で守り抜く。
           </h2>
           <div className="divider-gold" />
-          <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] mt-14 max-w-xl">
+          <p className="text-stone-500 text-sm md:text-base leading-[2.8] tracking-[0.08em] mt-[4rem] max-w-xl">
             交通事故・離婚・労働問題・消費者被害など、
             個人の方が直面する法的トラブルに寄り添い、
             初回30分無料でご相談をお受けします。
@@ -111,13 +111,13 @@ export default function IndividualSection() {
         </motion.div>
 
         {/* Practice Areas — icon cards */}
-        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
+        <div className="border-t border-stone-100 py-[12rem] md:py-[22rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-24"
+            className="mb-[6rem]"
           >
             <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-10">
               Practice Areas
@@ -127,7 +127,7 @@ export default function IndividualSection() {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-x-20 md:gap-y-24">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-[5rem] md:gap-x-[6rem] md:gap-y-[8rem]">
             {practiceAreas.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
@@ -137,26 +137,26 @@ export default function IndividualSection() {
                 custom={i}
                 variants={fade}
               >
-                <div className="w-16 h-16 rounded-full bg-warm-50 border border-warm-100 flex items-center justify-center mb-8">
+                <div className="w-16 h-16 rounded-full bg-warm-50 border border-warm-100 flex items-center justify-center mb-10">
                   <Icon className="w-7 h-7 text-warm-500" />
                 </div>
                 <h4 className="text-stone-900 text-lg font-medium tracking-[0.08em] mb-5">
                   {title}
                 </h4>
-                <p className="text-stone-500 text-sm leading-[2.4] tracking-[0.05em]">{desc}</p>
+                <p className="text-stone-500 text-sm leading-[2.8] tracking-[0.08em]">{desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Resolution Flow — icon steps */}
-        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
+        <div className="border-t border-stone-100 py-[12rem] md:py-[22rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-24"
+            className="mb-[6rem]"
           >
             <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-10">
               Process
@@ -166,7 +166,7 @@ export default function IndividualSection() {
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-14 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-[5rem] md:gap-[3rem]">
             {flowSteps.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
@@ -193,13 +193,13 @@ export default function IndividualSection() {
         </div>
 
         {/* Fees */}
-        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
+        <div className="border-t border-stone-100 py-[12rem] md:py-[22rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-24"
+            className="mb-[6rem]"
           >
             <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-10">
               Fees
@@ -251,7 +251,7 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="-mx-6 md:-mx-16 lg:-mx-24 mb-[8rem] md:mb-[14rem]"
+          className="-mx-6 md:-mx-16 lg:-mx-24 mb-[12rem] md:mb-[22rem]"
         >
           <img
             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&h=800&fit=crop"
@@ -266,7 +266,7 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="text-center pb-[10rem] md:pb-[18rem]"
+          className="text-center pb-[14rem] md:pb-[26rem]"
         >
           <button
             onClick={() => setShowContact(true)}

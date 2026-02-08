@@ -150,18 +150,18 @@ export default function StartupSection() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-[10rem] md:py-[18rem]"
+          className="py-[14rem] md:py-[26rem]"
         >
-          <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
+          <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-16">
             Venture & Corporate Law
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-[2.75rem] font-light text-stone-900 leading-[1.7] md:leading-[1.6] tracking-[0.04em] mb-12">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-[2.75rem] font-light text-stone-900 leading-[1.8] md:leading-[1.7] tracking-[0.06em] mb-16">
             ベンチャーの成長を、
             <br />
             法務で支える。
           </h2>
           <div className="divider-gold" />
-          <p className="text-stone-500 text-sm md:text-base leading-[2.4] tracking-[0.06em] mt-16 max-w-lg">
+          <p className="text-stone-500 text-sm md:text-base leading-[2.8] tracking-[0.08em] mt-[4rem] max-w-lg">
             IT・飲食・製造・医療・教育・コンサルなど、
             幅広い業種のベンチャー企業・中小企業を
             契約書作成からIPO準備まで一貫して支援します。
@@ -187,7 +187,7 @@ export default function StartupSection() {
           </motion.div>
 
           {/* コンテンツ */}
-          <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
+          <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[14rem] md:py-[26rem]">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -195,7 +195,7 @@ export default function StartupSection() {
               variants={fade}
             >
               {/* Number + En label */}
-              <div className="flex items-baseline gap-6 mb-[4rem]">
+              <div className="flex items-baseline gap-6 mb-[6rem]">
                 <span className="font-serif text-5xl md:text-6xl text-warm-200 font-light tracking-wider">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
@@ -205,19 +205,19 @@ export default function StartupSection() {
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-2xl md:text-3xl font-light text-stone-900 tracking-[0.06em] mb-[3rem]">
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-stone-900 tracking-[0.08em] mb-[4rem]">
                 {title}
               </h3>
 
-              <div className="w-10 h-px bg-warm-400 mb-[4rem]" />
+              <div className="w-10 h-px bg-warm-400 mb-[6rem]" />
 
               {/* Lead copy */}
-              <p className="text-stone-600 text-base md:text-lg leading-[2.4] tracking-[0.06em] whitespace-pre-line mb-[6rem] max-w-md">
+              <p className="text-stone-600 text-base md:text-lg leading-[2.8] tracking-[0.08em] whitespace-pre-line mb-[8rem] max-w-md">
                 {lead}
               </p>
 
               {/* Items with icons */}
-              <ul className="space-y-10 max-w-lg">
+              <ul className="space-y-14 max-w-lg">
                 {items.map(({ label, icon: Icon }) => (
                   <li
                     key={label}
@@ -239,7 +239,7 @@ export default function StartupSection() {
 
       {/* ━━━ Industries ━━━ */}
       <div className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[16rem]">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[14rem] md:py-[24rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -272,13 +272,13 @@ export default function StartupSection() {
 
       {/* ━━━ Growth Roadmap ━━━ */}
       <div className="bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[14rem] md:py-[26rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-[6rem]"
+            className="mb-[8rem]"
           >
             <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
               Growth Roadmap
@@ -298,7 +298,7 @@ export default function StartupSection() {
             viewport={{ once: true }}
             custom={1}
             variants={fade}
-            className="flex gap-3 mb-20 overflow-x-auto scrollbar-hide"
+            className="flex gap-3 mb-[6rem] overflow-x-auto scrollbar-hide"
           >
             {phases.map(({ label }, i) => (
               <button
@@ -332,7 +332,7 @@ export default function StartupSection() {
               transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
             >
               {/* Phase image */}
-              <div className="overflow-hidden mb-20">
+              <div className="overflow-hidden mb-[6rem]">
                 <img
                   src={phases[activePhase].image}
                   alt={phases[activePhase].title}
@@ -340,7 +340,7 @@ export default function StartupSection() {
                 />
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-20 md:gap-24">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-[6rem] md:gap-[8rem]">
                 <div>
                   <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-6">
                     {phases[activePhase].label}
@@ -400,7 +400,7 @@ export default function StartupSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="text-center py-[10rem] md:py-[18rem]"
+          className="text-center py-[14rem] md:py-[26rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
             Contact Us

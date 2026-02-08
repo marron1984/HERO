@@ -61,14 +61,14 @@ export default function TeamSection() {
         </div>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-[14rem] md:py-[26rem]">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="mb-[6rem] md:mb-[10rem]"
+          className="mb-[8rem] md:mb-[14rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
             Our Team
@@ -82,7 +82,7 @@ export default function TeamSection() {
         </motion.div>
 
         {/* Member cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-[5rem] md:gap-[3rem]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[6rem] md:gap-[3rem]">
           {members.map(({ name, role, photo, credentials, bio, lang }, i) => (
             <motion.div
               key={name}
@@ -117,7 +117,7 @@ export default function TeamSection() {
                 ))}
               </div>
 
-              <p className="text-stone-500 text-sm leading-[2.4] tracking-[0.05em] mb-5">{bio}</p>
+              <p className="text-stone-500 text-sm leading-[2.8] tracking-[0.08em] mb-5">{bio}</p>
               {lang && (
                 <p className="text-stone-400 text-xs tracking-[0.1em]">
                   使用言語: {lang}
