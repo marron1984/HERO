@@ -11,33 +11,57 @@ const fade = {
   }),
 }
 
+const practiceAreas = [
+  {
+    num: '01',
+    title: '交通事故',
+    desc: '後遺障害認定・示談交渉・訴訟まで、被害者に寄り添い適正な賠償を実現します。弁護士費用特約ご利用で自己負担0円。',
+  },
+  {
+    num: '02',
+    title: '離婚・男女問題',
+    desc: '財産分与・親権・養育費・慰謝料など、ご家庭のデリケートな問題を丁寧にサポートします。',
+  },
+  {
+    num: '03',
+    title: '労働問題',
+    desc: '不当解雇・残業代請求・ハラスメントなど、労働者の権利を守るために全力で取り組みます。',
+  },
+  {
+    num: '04',
+    title: '消費者被害',
+    desc: '詐欺・悪質商法・インターネットトラブルなど、消費者被害の回復を支援します。',
+  },
+]
+
 const flowSteps = [
   {
     num: '01',
     title: '無料相談',
-    desc: '電話・LINE・フォームからお気軽に。初回から弁護士が直接対応いたします。',
+    desc: '電話・フォームからお気軽に。初回30分は弁護士が直接対応いたします。',
   },
   {
     num: '02',
-    title: '調査・資料収集',
-    desc: '事故状況・医療記録を精査し、最適な戦略を立案します。',
+    title: '調査・方針策定',
+    desc: '事実関係を精査し、ご依頼者様にとって最善の戦略を立案します。',
   },
   {
     num: '03',
-    title: '示談交渉',
-    desc: '弁護士基準で算定し、保険会社の低額提示を徹底的に是正します。',
+    title: '交渉・訴訟',
+    desc: '相手方との交渉を進め、必要に応じて訴訟も辞さず適正な解決を目指します。',
   },
   {
     num: '04',
-    title: '訴訟・解決',
-    desc: '示談が不成立の場合は訴訟も辞さず。全力で適正額を勝ち取ります。',
+    title: '解決',
+    desc: '最善の結果を勝ち取り、解決へ導きます。アフターフォローも万全です。',
   },
 ]
 
-const results = [
-  { category: '後遺障害14級', before: '75万円', after: '320万円', increase: '4.3倍' },
-  { category: '後遺障害12級', before: '250万円', after: '830万円', increase: '3.3倍' },
-  { category: '死亡事故', before: '3,500万円', after: '7,200万円', increase: '2.1倍' },
+const fees = [
+  { label: '法律相談', detail: '初回30分無料', sub: '以後30分 5,000円（税抜）' },
+  { label: '着手金（示談交渉）', detail: '15万円〜', sub: null },
+  { label: '着手金（調停事件）', detail: '20万円〜', sub: null },
+  { label: '着手金（訴訟事件）', detail: '30万円〜', sub: null },
 ]
 
 export default function IndividualSection() {
@@ -45,7 +69,7 @@ export default function IndividualSection() {
 
   return (
     <section className="bg-white overflow-hidden">
-      {/* Full-bleed opening image — ドーンと */}
+      {/* Full-bleed opening image */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -74,16 +98,56 @@ export default function IndividualSection() {
             For Individuals
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.6] tracking-[0.04em] mb-8">
-            交通事故被害者を、
+            あなたの権利を、
             <br />
             全力で守り抜く。
           </h2>
           <div className="divider-gold" />
           <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] mt-10 max-w-xl">
-            保険会社の提示額に納得できていますか？
-            当事務所では平均して提示額の2〜4倍の増額を実現しています。
+            交通事故・離婚・労働問題・消費者被害など、
+            個人の方が直面する法的トラブルに寄り添い、
+            初回30分無料でご相談をお受けします。
           </p>
         </motion.div>
+
+        {/* Practice Areas */}
+        <div className="border-t border-stone-100 py-28 md:py-40">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fade}
+            className="mb-20"
+          >
+            <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
+              Practice Areas
+            </p>
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em]">
+              取扱分野
+            </h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-20">
+            {practiceAreas.map(({ num, title, desc }, i) => (
+              <motion.div
+                key={num}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                custom={i}
+                variants={fade}
+              >
+                <span className="font-serif text-warm-300 text-3xl md:text-4xl font-light tracking-wider">
+                  {num}
+                </span>
+                <h4 className="text-stone-900 text-base font-medium tracking-[0.08em] mt-4 mb-3">
+                  {title}
+                </h4>
+                <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em]">{desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Resolution Flow */}
         <div className="border-t border-stone-100 py-28 md:py-40">
@@ -124,7 +188,7 @@ export default function IndividualSection() {
           </div>
         </div>
 
-        {/* Results */}
+        {/* Fees */}
         <div className="border-t border-stone-100 py-28 md:py-40">
           <motion.div
             initial="hidden"
@@ -134,17 +198,17 @@ export default function IndividualSection() {
             className="mb-20"
           >
             <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
-              Results
+              Fees
             </p>
             <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em]">
-              解決実績
+              弁護士費用
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
-            {results.map(({ category, before, after, increase }, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+            {fees.map(({ label, detail, sub }, i) => (
               <motion.div
-                key={category}
+                key={label}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
@@ -152,23 +216,29 @@ export default function IndividualSection() {
                 variants={fade}
                 className="border-t border-stone-200 pt-8"
               >
-                <p className="text-warm-500 text-xs tracking-[0.2em] mb-6">{category}</p>
-                <div className="mb-4">
-                  <span className="text-stone-400 text-xs tracking-[0.15em]">保険会社提示</span>
-                  <div className="text-stone-400 text-sm line-through mt-2 tracking-wider">{before}</div>
+                <p className="text-stone-500 text-xs tracking-[0.2em] mb-4">{label}</p>
+                <div className="font-serif text-2xl md:text-3xl text-stone-900 font-light tracking-wider">
+                  {detail}
                 </div>
-                <div className="mb-5">
-                  <span className="text-stone-400 text-xs tracking-[0.15em]">最終獲得額</span>
-                  <div className="font-serif text-3xl md:text-4xl text-stone-900 font-light mt-2 tracking-wider">
-                    {after}
-                  </div>
-                </div>
-                <span className="text-accent-green text-sm font-medium tracking-wider">
-                  {increase}に増額
-                </span>
+                {sub && (
+                  <p className="text-stone-400 text-sm mt-3 tracking-[0.06em]">{sub}</p>
+                )}
               </motion.div>
             ))}
           </div>
+
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fade}
+            className="mt-16 p-6 bg-warm-50 border border-warm-100"
+          >
+            <p className="text-stone-600 text-sm leading-[2.2] tracking-[0.05em]">
+              ※交通事故は<span className="text-warm-700 font-medium">弁護士費用特約</span>のご利用で自己負担0円となります。
+              詳しくはお気軽にお問い合わせください。
+            </p>
+          </motion.div>
         </div>
 
         {/* Second big image */}
@@ -199,12 +269,12 @@ export default function IndividualSection() {
             className="group inline-flex items-center gap-4 text-stone-900 hover:text-warm-700 transition-colors"
           >
             <span className="font-serif text-lg tracking-[0.15em] font-light">
-              無料相談はこちら
+              初回30分無料相談はこちら
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>
           <p className="text-stone-400 text-xs mt-6 tracking-[0.2em]">
-            24時間受付・土日祝も対応
+            TEL 06-6944-8811（平日 9:00〜18:00）
           </p>
         </motion.div>
       </div>

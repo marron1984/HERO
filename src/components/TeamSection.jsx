@@ -12,28 +12,31 @@ const fade = {
 
 const members = [
   {
-    name: '丸野 悟史',
-    role: '代表弁護士 / 公認会計士',
+    name: '岩崎 章浩',
+    role: '代表弁護士・弁理士',
     photo:
       'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=750&fit=crop&crop=face',
-    credentials: ['弁護士', '公認会計士', 'エンジェル投資家'],
-    bio: '東京大学法学部卒。大手法律事務所を経て独立。弁護士×公認会計士の資格を持ち、30社以上のスタートアップにエンジェル投資。',
+    credentials: ['弁護士', '弁理士'],
+    bio: '同志社大学法学部卒。大阪大学大学院法学研究科、東北大学大学院法学研究科を経て司法試験合格。神戸マリン綜合法律事務所を経てHEROリーガルグループを開設。辰巳法律研究所専任講師、近畿大学・立命館大学・関西学院大学にて教鞭を執る。',
+    lang: '日本語・英語',
   },
   {
-    name: '佐藤 美咲',
-    role: 'パートナー弁護士',
+    name: '並木 三恵',
+    role: '弁護士',
     photo:
       'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=750&fit=crop&crop=face',
-    credentials: ['弁護士', '交通事故専門'],
-    bio: '交通事故案件を中心に3,000件以上の解決実績。被害者に寄り添い、保険会社との交渉で最大限の賠償を勝ち取る。',
+    credentials: ['弁護士', '労働法務', 'キャピタルマーケッツ'],
+    bio: '京都大学法科大学院修了。長島・大野・常松法律事務所勤務後、梅田セントラル法律事務所を経て入所。労働法務、キャピタルマーケッツ、会社法務を重点的に取り扱う。',
+    lang: '日本語・英語',
   },
   {
-    name: '田中 健一',
-    role: 'Of Counsel / 税理士',
+    name: '足立 和也 ほか',
+    role: '協力 公認会計士・税理士',
     photo:
       'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=750&fit=crop&crop=face',
-    credentials: ['税理士', 'CFO経験者'],
-    bio: 'Big4出身。スタートアップの税務顧問として50社以上を担当。資金調達時のバリュエーション算定にも精通。',
+    credentials: ['公認会計士', '税理士', 'M&A・IPO'],
+    bio: '大手監査法人を経てパートナーと共に独立。M&A・IPOのスキーム支援を多数手掛ける。財務デューデリジェンスからバリュエーション算定まで幅広く対応。',
+    lang: null,
   },
 ]
 
@@ -42,7 +45,7 @@ export default function TeamSection() {
 
   return (
     <section className="bg-stone-50 overflow-hidden">
-      {/* Full-bleed team image — ドーンと */}
+      {/* Full-bleed team image */}
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -71,46 +74,16 @@ export default function TeamSection() {
             Our Team
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.6] tracking-[0.04em] mb-8">
-            法律、会計、投資。
+            法律、会計、税務。
             <br />
-            三領域の専門家。
+            各分野の専門家。
           </h2>
           <div className="divider" />
         </motion.div>
 
-        {/* Trinity circles */}
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          variants={fade}
-          className="flex justify-center mb-28 md:mb-40"
-        >
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
-            <div className="absolute w-[55%] h-[55%] rounded-full border border-warm-300 left-1/2 top-[15%] -translate-x-[75%] flex items-center justify-center">
-              <div className="text-center">
-                <div className="font-serif text-stone-700 text-sm tracking-[0.1em]">法務</div>
-                <div className="text-[9px] text-warm-400 tracking-[0.25em] uppercase mt-1">Legal</div>
-              </div>
-            </div>
-            <div className="absolute w-[55%] h-[55%] rounded-full border border-warm-300 left-1/2 top-[15%] -translate-x-[25%] flex items-center justify-center">
-              <div className="text-center">
-                <div className="font-serif text-stone-700 text-sm tracking-[0.1em]">会計</div>
-                <div className="text-[9px] text-warm-400 tracking-[0.25em] uppercase mt-1">Accounting</div>
-              </div>
-            </div>
-            <div className="absolute w-[55%] h-[55%] rounded-full border border-warm-300 left-1/2 bottom-[10%] -translate-x-1/2 flex items-center justify-center">
-              <div className="text-center">
-                <div className="font-serif text-stone-700 text-sm tracking-[0.1em]">投資</div>
-                <div className="text-[9px] text-warm-400 tracking-[0.25em] uppercase mt-1">Investment</div>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-
         {/* Member cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14">
-          {members.map(({ name, role, photo, credentials, bio }, i) => (
+          {members.map(({ name, role, photo, credentials, bio, lang }, i) => (
             <motion.div
               key={name}
               initial="hidden"
@@ -119,7 +92,7 @@ export default function TeamSection() {
               custom={i}
               variants={fade}
             >
-              {/* Photo — bigger */}
+              {/* Photo */}
               <div className="overflow-hidden mb-8">
                 <img
                   src={photo}
@@ -144,7 +117,12 @@ export default function TeamSection() {
                 ))}
               </div>
 
-              <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em]">{bio}</p>
+              <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em] mb-3">{bio}</p>
+              {lang && (
+                <p className="text-stone-400 text-xs tracking-[0.1em]">
+                  使用言語: {lang}
+                </p>
+              )}
             </motion.div>
           ))}
         </div>

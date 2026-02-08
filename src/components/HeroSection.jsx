@@ -10,7 +10,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative flex flex-col bg-stone-50">
-      {/* Full-bleed hero image — ドーンと */}
+      {/* Full-bleed hero image */}
       <div className="relative w-full h-[50vh] md:h-[60vh] overflow-hidden">
         <AnimatePresence mode="wait">
           <motion.img
@@ -42,7 +42,7 @@ export default function HeroSection() {
           className="md:hidden mb-10"
         >
           <span className="font-serif text-lg tracking-[0.3em] text-stone-800 font-light">
-            LEGAL HERO
+            HERO LEGAL
           </span>
         </motion.div>
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
                 : 'text-stone-400 hover:text-stone-600'
             }`}
           >
-            スタートアップ
+            企業・ベンチャー
             {isStartup && (
               <motion.div
                 layoutId="segmentLine"
@@ -107,19 +107,19 @@ export default function HeroSection() {
                 className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8 md:mb-10"
               >
                 {isStartup
-                  ? 'Legal × Accounting × Investment'
-                  : 'Traffic Accident Support'}
+                  ? 'Venture & Corporate Law'
+                  : 'Individual Support'}
               </motion.p>
 
               {/* Heading */}
               <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-light text-stone-900 leading-[1.6] md:leading-[1.5] tracking-[0.04em] mb-10 md:mb-14">
                 {isStartup ? (
                   <>
-                    法律、会計、投資。
+                    ベンチャーの挑戦を、
                     <br />
-                    <span className="text-warm-600">三つの知見</span>を、
+                    <span className="text-warm-600">法務の力</span>で
                     <br className="md:hidden" />
-                    一つに。
+                    支える。
                   </>
                 ) : (
                   <>
@@ -135,8 +135,8 @@ export default function HeroSection() {
               {/* Body copy */}
               <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] max-w-lg mb-14 md:mb-16">
                 {isStartup
-                  ? '弁護士×公認会計士×エンジェル投資家。創業からIPOまで、法務・税務・資金調達をワンストップで伴走します。'
-                  : '3,000件以上の解決実績。後遺障害認定・示談交渉・訴訟まで、被害者様に寄り添い、適正な賠償額を実現します。'}
+                  ? 'IT・飲食・医療・教育など幅広い業種のベンチャー企業を支援。契約書作成から利用規約、資金調達、IPO準備まで、成長フェーズに応じた法務をワンストップで提供します。'
+                  : '交通事故・離婚・労働問題・消費者被害まで、個人の権利を守る法務を提供。初回30分無料相談で、まずはお気軽にご相談ください。'}
               </p>
 
               {/* CTA */}
@@ -173,26 +173,26 @@ export default function HeroSection() {
                 <>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      200<span className="text-warm-500">+</span>
+                      10<span className="text-warm-500">+</span>
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      支援企業
+                      対応業種
                     </div>
                   </div>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      150<span className="text-warm-500">億</span>
+                      初回<span className="text-warm-500">無料</span>
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      調達支援額
+                      法律相談
                     </div>
                   </div>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      30<span className="text-warm-500">社</span>
+                      2<span className="text-warm-500">万〜</span>
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      投資先
+                      顧問契約
                     </div>
                   </div>
                 </>
@@ -200,26 +200,26 @@ export default function HeroSection() {
                 <>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      3,000<span className="text-warm-500">+</span>
+                      初回<span className="text-warm-500">無料</span>
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      解決実績
+                      30分相談
                     </div>
                   </div>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      98<span className="text-warm-500">%</span>
+                      負担<span className="text-warm-500">0</span>円
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      満足度
+                      弁護士費用特約
                     </div>
                   </div>
                   <div>
                     <div className="font-serif text-2xl md:text-3xl text-stone-800 font-light tracking-wider">
-                      93<span className="text-warm-500">%</span>
+                      全国<span className="text-warm-500">対応</span>
                     </div>
                     <div className="text-[10px] md:text-xs text-stone-400 tracking-[0.2em] mt-2">
-                      認定率
+                      オンライン可
                     </div>
                   </div>
                 </>

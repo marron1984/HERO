@@ -114,13 +114,13 @@ function Content({ mode, setMode, handleSubmit, handleClose }) {
 
           <div className="space-y-3 mb-8">
             <a
-              href="tel:03-1234-5678"
+              href="tel:06-6944-8811"
               className="flex items-center gap-4 p-4 border border-stone-200 hover:border-stone-300 transition-colors"
             >
               <Phone className="w-5 h-5 text-stone-500" />
               <div>
                 <div className="text-stone-900 text-sm font-medium">電話で相談</div>
-                <div className="text-stone-400 text-xs mt-0.5">03-1234-5678（平日 9:00〜21:00）</div>
+                <div className="text-stone-400 text-xs mt-0.5">06-6944-8811（平日 9:00〜18:00）</div>
               </div>
             </a>
 
@@ -205,10 +205,12 @@ function Content({ mode, setMode, handleSubmit, handleClose }) {
                 className="w-full pb-2 text-sm border-b border-stone-200 focus:border-stone-900 outline-none transition-colors bg-transparent"
               >
                 <option value="">選択してください</option>
-                <option>スタートアップ法務</option>
-                <option>資金調達・投資契約</option>
-                <option>税務・会計</option>
+                <option>ベンチャー・企業法務</option>
+                <option>顧問契約</option>
                 <option>交通事故</option>
+                <option>離婚・男女問題</option>
+                <option>労働問題</option>
+                <option>消費者被害</option>
                 <option>その他</option>
               </select>
             </div>

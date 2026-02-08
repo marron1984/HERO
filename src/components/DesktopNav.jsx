@@ -5,7 +5,7 @@ import { useApp } from '../context/AppContext'
 
 const navLinks = [
   { id: 'home', label: 'ホーム', href: '#hero' },
-  { id: 'startup', label: 'スタートアップ', href: '#startup' },
+  { id: 'startup', label: '企業・ベンチャー', href: '#startup' },
   { id: 'individual', label: '個人のお客様', href: '#individual' },
   { id: 'team', label: 'チーム', href: '#team' },
 ]
@@ -44,7 +44,7 @@ export default function DesktopNav() {
       <div className="max-w-6xl mx-auto px-8 lg:px-20 h-16 flex items-center justify-between">
         {/* Logo — serif text only */}
         <span className="font-serif text-base tracking-[0.2em] text-stone-800 font-light">
-          LEGAL HERO
+          HERO LEGAL
         </span>
 
         {/* Nav links */}

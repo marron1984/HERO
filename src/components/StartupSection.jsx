@@ -14,75 +14,86 @@ const fade = {
 
 const pillars = [
   {
-    title: '法務',
-    en: 'Legal',
-    lead: '契約から紛争解決まで、\nスタートアップの成長を法で守る。',
+    title: '契約・法務',
+    en: 'Contract & Legal',
+    lead: '契約書の作成・レビューから\n利用規約・プライバシーポリシーまで。',
     items: [
       '契約書レビュー・作成',
+      '利用規約・プライバシーポリシー',
       '株主間契約（SHA）',
-      '知財出願戦略',
-      '訴訟・紛争対応',
+      '知的財産・商標出願',
     ],
     image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&h=900&fit=crop',
-    imageAlt: '法務 — 契約書を精査する弁護士',
+    imageAlt: '契約 — 契約書を精査する弁護士',
   },
   {
-    title: '会計',
-    en: 'Accounting',
-    lead: '財務基盤の構築から監査対応まで、\n数字の信頼性を担保する。',
+    title: '顧問契約',
+    en: 'Advisory',
+    lead: '月額2万円〜の顧問プランで、\n日常的な法務相談をサポート。',
     items: [
-      '税務申告・節税対策',
-      '財務デューデリジェンス',
-      '監査対応支援',
-      'CFOアドバイザリー',
+      'お気軽プラン — 月2万円〜',
+      '通常コンプライアンス — 月5万円〜',
+      '社内コンプライアンス — 月10万円〜',
+      'オーダーメイド対応',
     ],
     image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=1400&h=900&fit=crop',
-    imageAlt: '会計 — 財務分析とデータ',
+    imageAlt: '顧問 — ビジネスパートナーとの相談',
   },
   {
-    title: '投資',
-    en: 'Investment',
-    lead: 'エンジェル投資家の視座で、\n資金戦略を共に描く。',
+    title: '資金調達・M&A',
+    en: 'Finance & M&A',
+    lead: '資金調達スキームの設計から\nM&A・IPO準備まで一気通貫で支援。',
     items: [
-      'J-KISS / SO設計',
-      'タームシート交渉',
+      'タームシート・投資契約',
       'バリュエーション算定',
-      'エンジェル投資家の視点',
+      'M&Aデューデリジェンス',
+      'IPO準備・内部統制',
     ],
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&h=900&fit=crop',
     imageAlt: '投資 — 成長戦略の議論',
   },
 ]
 
+const industries = [
+  'IT・アプリ・Web',
+  '飲食',
+  '製造',
+  '医療',
+  '教育',
+  'コンサルティング',
+  'インターネット',
+  'その他',
+]
+
 const phases = [
   {
     id: 'seed',
-    label: 'Seed',
+    label: '創業期',
     title: '創業期',
-    desc: '会社設立からファーストラウンドまで。定款作成、創業者間契約、初期税務体制を整備します。',
-    tasks: ['定款作成・登記サポート', '創業者間契約（SHA）', 'J-KISS / SO設計', '初期税務体制構築'],
+    desc: '会社設立からファーストラウンドまで。定款作成、創業者間契約、初期の法務体制を整備します。',
+    tasks: ['定款作成・登記サポート', '創業者間契約（SHA）', '利用規約・PP作成', '初期顧問契約'],
     image: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&h=600&fit=crop',
   },
   {
-    id: 'seriesA',
-    label: 'Series A',
+    id: 'growth',
+    label: '成長期',
     title: '成長期',
     desc: '資金調達とプロダクト拡大。投資契約書のドラフトから知財戦略まで一気通貫で支援します。',
-    tasks: ['タームシート交渉', '投資契約書レビュー', '利用規約・PP', '法務デューデリジェンス'],
+    tasks: ['タームシート交渉', '投資契約書レビュー', '知財・商標出願', '法務デューデリジェンス'],
     image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=600&fit=crop',
   },
   {
-    id: 'seriesB',
-    label: 'Series B+',
+    id: 'expansion',
+    label: '拡大期',
     title: '拡大期',
-    desc: 'M&A・海外展開・コンプライアンス体制の強化。事業のスケールに合わせた法務基盤を構築します。',
-    tasks: ['M&Aデューデリジェンス', '海外進出法務', 'コンプライアンス体制', 'SO再設計'],
+    desc: 'M&A・事業拡大・コンプライアンス体制の強化。事業のスケールに合わせた法務基盤を構築します。',
+    tasks: ['M&Aデューデリジェンス', 'コンプライアンス体制構築', '社内規程整備', '労務管理支援'],
     image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1200&h=600&fit=crop',
   },
   {
     id: 'ipo',
-    label: 'IPO',
-    title: '上場準備',
+    label: 'IPO準備',
+    title: 'IPO準備',
     desc: '証券審査から上場後ガバナンスまで、完全に伴走します。',
     tasks: ['Ⅰの部・Ⅱの部作成', '内部統制（J-SOX）', '証券会社対応', '開示書類レビュー'],
     image: 'https://images.unsplash.com/photo-1554469384-e58fac16e23a?w=1200&h=600&fit=crop',
@@ -105,7 +116,7 @@ export default function StartupSection() {
       >
         <img
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1800&h=900&fit=crop"
-          alt="スタートアップチームの議論"
+          alt="ベンチャー企業のオフィス"
           className="w-full h-[45vh] md:h-[55vh] lg:h-[60vh] object-cover"
         />
       </motion.div>
@@ -120,22 +131,23 @@ export default function StartupSection() {
           className="py-32 md:py-52"
         >
           <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-10">
-            For Startups
+            Venture & Corporate Law
           </p>
           <h2 className="font-serif text-2xl sm:text-3xl md:text-[2.75rem] font-light text-stone-900 leading-[1.7] md:leading-[1.6] tracking-[0.04em] mb-10">
-            格式高きパートナーとして、
+            ベンチャーの成長を、
             <br />
-            成長の全局面を支える。
+            法務で支える。
           </h2>
           <div className="divider-gold" />
           <p className="text-stone-500 text-sm md:text-base leading-[2.4] tracking-[0.06em] mt-12 max-w-lg">
-            法務・会計・投資の三領域を横断し、
-            創業からIPOまでワンストップで伴走します。
+            IT・飲食・製造・医療・教育・コンサルなど、
+            幅広い業種のベンチャー企業・中小企業を
+            契約書作成からIPO準備まで一貫して支援します。
           </p>
         </motion.div>
       </div>
 
-      {/* ━━━ Three Pillars — 縦に展開、各ピラーに写真 ━━━ */}
+      {/* ━━━ Three Pillars ━━━ */}
       {pillars.map(({ title, en, lead, items, image, imageAlt }, idx) => (
         <div key={en}>
           {/* 写真 — フルブリード */}
@@ -182,7 +194,7 @@ export default function StartupSection() {
                 {lead}
               </p>
 
-              {/* Items — ゆったり縦並び */}
+              {/* Items */}
               <ul className="space-y-6 max-w-md">
                 {items.map((item, i) => (
                   <li
@@ -203,8 +215,38 @@ export default function StartupSection() {
         </div>
       ))}
 
-      {/* ━━━ Growth Roadmap ━━━ */}
+      {/* ━━━ Industries ━━━ */}
       <div className="bg-white">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-40">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fade}
+          >
+            <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-10">
+              Industries
+            </p>
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em] leading-[1.7] mb-12">
+              対応業種
+            </h3>
+            <div className="divider mb-16" />
+            <div className="flex flex-wrap gap-4">
+              {industries.map((ind) => (
+                <span
+                  key={ind}
+                  className="text-sm text-stone-600 tracking-[0.08em] border border-stone-200 px-5 py-2.5"
+                >
+                  {ind}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ━━━ Growth Roadmap ━━━ */}
+      <div className="bg-stone-50">
         <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-32 md:py-52">
           <motion.div
             initial="hidden"
@@ -348,7 +390,7 @@ export default function StartupSection() {
             className="group inline-flex items-center gap-4 text-stone-900 hover:text-warm-700 transition-colors"
           >
             <span className="font-serif text-lg tracking-[0.15em] font-light">
-              スタートアップ向け無料相談
+              初回30分無料相談
             </span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>

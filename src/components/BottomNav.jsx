@@ -4,7 +4,7 @@ import { useApp } from '../context/AppContext'
 
 const tabs = [
   { id: 'home', label: 'ホーム', icon: Home },
-  { id: 'startup', label: 'スタートアップ', icon: Rocket },
+  { id: 'startup', label: '企業法務', icon: Rocket },
   { id: 'individual', label: '個人', icon: User },
   { id: 'team', label: 'チーム', icon: Users },
   { id: 'contact', label: '相談', icon: MessageSquare, highlight: true },
