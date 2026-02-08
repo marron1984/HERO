@@ -33,13 +33,13 @@ export default function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex flex-col flex-1 px-6 md:px-16 lg:px-24 pt-16 md:pt-24 pb-16 md:pb-20 max-w-6xl mx-auto w-full">
+      <div className="relative z-10 flex flex-col flex-1 px-6 md:px-16 lg:px-24 pt-20 md:pt-28 pb-20 md:pb-28 max-w-6xl mx-auto w-full">
         {/* Mobile logo */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ...slow, delay: 0.2 }}
-          className="md:hidden mb-10"
+          className="md:hidden mb-14"
         >
           <span className="font-serif text-lg tracking-[0.3em] text-stone-800 font-light">
             HERO LEGAL
@@ -51,7 +51,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ ...slow, delay: 0.4 }}
-          className="flex items-center gap-8 mb-20 md:mb-24"
+          className="flex items-center gap-8 mb-24 md:mb-32"
         >
           <button
             onClick={() => setSegment('startup')}
@@ -112,7 +112,7 @@ export default function HeroSection() {
               </motion.p>
 
               {/* Heading */}
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-light text-stone-900 leading-[1.6] md:leading-[1.5] tracking-[0.04em] mb-10 md:mb-14">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-light text-stone-900 leading-[1.6] md:leading-[1.5] tracking-[0.04em] mb-14 md:mb-18">
                 {isStartup ? (
                   <>
                     ベンチャーの挑戦を、
@@ -133,7 +133,7 @@ export default function HeroSection() {
               </h1>
 
               {/* Body copy */}
-              <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] max-w-lg mb-14 md:mb-16">
+              <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] max-w-lg mb-16 md:mb-20">
                 {isStartup
                   ? 'IT・飲食・医療・教育など幅広い業種のベンチャー企業を支援。契約書作成から利用規約、資金調達、IPO準備まで、成長フェーズに応じた法務をワンストップで提供します。'
                   : '交通事故・離婚・労働問題・消費者被害まで、個人の権利を守る法務を提供。初回30分無料相談で、まずはお気軽にご相談ください。'}
@@ -158,7 +158,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2, duration: 1 }}
-          className="border-t border-stone-200 pt-10 mt-24 md:mt-32"
+          className="border-t border-stone-200 pt-12 mt-28 md:mt-40"
         >
           <AnimatePresence mode="wait">
             <motion.div

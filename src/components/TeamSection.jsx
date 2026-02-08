@@ -61,14 +61,14 @@ export default function TeamSection() {
         </div>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-28 md:py-44">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-36 md:py-56">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="mb-24 md:mb-32"
+          className="mb-28 md:mb-40"
         >
           <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
             Our Team
@@ -82,7 +82,7 @@ export default function TeamSection() {
         </motion.div>
 
         {/* Member cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-16">
           {members.map(({ name, role, photo, credentials, bio, lang }, i) => (
             <motion.div
               key={name}
@@ -93,7 +93,7 @@ export default function TeamSection() {
               variants={fade}
             >
               {/* Photo */}
-              <div className="overflow-hidden mb-8">
+              <div className="overflow-hidden mb-10">
                 <img
                   src={photo}
                   alt={name}
@@ -104,9 +104,9 @@ export default function TeamSection() {
               <h3 className="font-serif text-lg text-stone-900 font-light tracking-[0.08em] mb-2">
                 {name}
               </h3>
-              <p className="text-stone-500 text-xs tracking-[0.15em] mb-5">{role}</p>
+              <p className="text-stone-500 text-xs tracking-[0.15em] mb-7">{role}</p>
 
-              <div className="flex flex-wrap gap-2 mb-6">
+              <div className="flex flex-wrap gap-2.5 mb-8">
                 {credentials.map((c) => (
                   <span
                     key={c}
@@ -117,7 +117,7 @@ export default function TeamSection() {
                 ))}
               </div>
 
-              <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em] mb-3">{bio}</p>
+              <p className="text-stone-500 text-sm leading-[2.4] tracking-[0.05em] mb-5">{bio}</p>
               {lang && (
                 <p className="text-stone-400 text-xs tracking-[0.1em]">
                   使用言語: {lang}
