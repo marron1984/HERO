@@ -150,7 +150,7 @@ export default function StartupSection() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-40 md:py-60"
+          className="py-[10rem] md:py-[18rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
             Venture & Corporate Law
@@ -187,7 +187,7 @@ export default function StartupSection() {
           </motion.div>
 
           {/* コンテンツ */}
-          <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-36 md:py-56">
+          <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
             <motion.div
               initial="hidden"
               whileInView="visible"
@@ -195,7 +195,7 @@ export default function StartupSection() {
               variants={fade}
             >
               {/* Number + En label */}
-              <div className="flex items-baseline gap-6 mb-12">
+              <div className="flex items-baseline gap-6 mb-[4rem]">
                 <span className="font-serif text-5xl md:text-6xl text-warm-200 font-light tracking-wider">
                   {String(idx + 1).padStart(2, '0')}
                 </span>
@@ -205,14 +205,14 @@ export default function StartupSection() {
               </div>
 
               {/* Title */}
-              <h3 className="font-serif text-2xl md:text-3xl font-light text-stone-900 tracking-[0.06em] mb-10">
+              <h3 className="font-serif text-2xl md:text-3xl font-light text-stone-900 tracking-[0.06em] mb-[3rem]">
                 {title}
               </h3>
 
-              <div className="w-10 h-px bg-warm-400 mb-14" />
+              <div className="w-10 h-px bg-warm-400 mb-[4rem]" />
 
               {/* Lead copy */}
-              <p className="text-stone-600 text-base md:text-lg leading-[2.4] tracking-[0.06em] whitespace-pre-line mb-20 max-w-md">
+              <p className="text-stone-600 text-base md:text-lg leading-[2.4] tracking-[0.06em] whitespace-pre-line mb-[6rem] max-w-md">
                 {lead}
               </p>
 
@@ -239,7 +239,7 @@ export default function StartupSection() {
 
       {/* ━━━ Industries ━━━ */}
       <div className="bg-white">
-        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-36 md:py-52">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[16rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -272,13 +272,13 @@ export default function StartupSection() {
 
       {/* ━━━ Growth Roadmap ━━━ */}
       <div className="bg-stone-50">
-        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-40 md:py-60">
+        <div className="max-w-5xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-28"
+            className="mb-[6rem]"
           >
             <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
               Growth Roadmap
@@ -400,7 +400,7 @@ export default function StartupSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="text-center py-40 md:py-56"
+          className="text-center py-[10rem] md:py-[18rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.4em] uppercase mb-12">
             Contact Us

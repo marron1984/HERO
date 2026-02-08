@@ -4,9 +4,9 @@ export default function Footer() {
   return (
     <footer className="bg-warm-50 border-t border-stone-200">
       {/* Main content */}
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 pt-28 md:pt-40 pb-28 md:pb-20">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 pt-[8rem] md:pt-[12rem] pb-[8rem] md:pb-[6rem]">
         {/* Top: Logo + tagline */}
-        <div className="mb-20 md:mb-28">
+        <div className="mb-[6rem] md:mb-[8rem]">
           <span className="font-serif text-xl md:text-2xl tracking-[0.3em] text-stone-800 font-light">
             HERO LEGAL GROUP
           </span>
@@ -19,7 +19,7 @@ export default function Footer() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-20 mb-20 md:mb-28">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[4rem] md:gap-[5rem] mb-[6rem] md:mb-[8rem]">
           {/* Services */}
           <div>
             <h4 className="text-stone-700 text-[11px] tracking-[0.25em] uppercase font-medium mb-6">

@@ -92,7 +92,7 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-36 md:py-56"
+          className="py-[10rem] md:py-[18rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-10">
             For Individuals
@@ -111,7 +111,7 @@ export default function IndividualSection() {
         </motion.div>
 
         {/* Practice Areas — icon cards */}
-        <div className="border-t border-stone-100 py-36 md:py-52">
+        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -150,7 +150,7 @@ export default function IndividualSection() {
         </div>
 
         {/* Resolution Flow — icon steps */}
-        <div className="border-t border-stone-100 py-36 md:py-52">
+        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -193,7 +193,7 @@ export default function IndividualSection() {
         </div>
 
         {/* Fees */}
-        <div className="border-t border-stone-100 py-36 md:py-52">
+        <div className="border-t border-stone-100 py-[8rem] md:py-[14rem]">
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -251,7 +251,7 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="-mx-6 md:-mx-16 lg:-mx-24 mb-36 md:mb-48"
+          className="-mx-6 md:-mx-16 lg:-mx-24 mb-[8rem] md:mb-[14rem]"
         >
           <img
             src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&h=800&fit=crop"
@@ -266,7 +266,7 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="text-center pb-36 md:pb-56"
+          className="text-center pb-[10rem] md:pb-[18rem]"
         >
           <button
             onClick={() => setShowContact(true)}

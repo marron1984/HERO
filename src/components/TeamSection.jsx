@@ -61,14 +61,14 @@ export default function TeamSection() {
         </div>
       </motion.div>
 
-      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-36 md:py-56">
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24 py-[10rem] md:py-[18rem]">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="mb-28 md:mb-40"
+          className="mb-[6rem] md:mb-[10rem]"
         >
           <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
             Our Team
@@ -82,7 +82,7 @@ export default function TeamSection() {
         </motion.div>
 
         {/* Member cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[5rem] md:gap-[3rem]">
           {members.map(({ name, role, photo, credentials, bio, lang }, i) => (
             <motion.div
               key={name}
