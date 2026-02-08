@@ -1,325 +1,195 @@
-import { useRef, useCallback } from 'react'
 import { motion } from 'framer-motion'
-import {
-  FileCheck,
-  MessageSquare,
-  Gavel,
-  BadgeCheck,
-  Clock,
-  Phone,
-  ArrowRight,
-  ShieldCheck,
-  HeartHandshake,
-} from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useApp } from '../context/AppContext'
-import { useCountUp } from '../hooks/useCountUp'
 
-/* ─── Bento card with mouse-glow (royal blue) ─── */
-function BentoBlue({ children, className = '' }) {
-  const ref = useRef(null)
-  const handleMove = useCallback((e) => {
-    const rect = ref.current?.getBoundingClientRect()
-    if (!rect) return
-    ref.current.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`)
-    ref.current.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`)
-  }, [])
-
-  return (
-    <motion.div
-      ref={ref}
-      onMouseMove={handleMove}
-      whileHover={{ y: -4, transition: { duration: 0.25 } }}
-      className={`bento-glow bento-glow-blue bg-white rounded-2xl border border-gray-100 shadow-sm p-5 md:p-6 lg:p-8 transition-all hover:shadow-lg ${className}`}
-    >
-      <div className="relative z-10">{children}</div>
-    </motion.div>
-  )
+const fade = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (i = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.15, duration: 0.9, ease: [0.25, 0.1, 0.25, 1] },
+  }),
 }
 
-/* ─── Count stat ─── */
-function CountStat({ end, suffix, label }) {
-  const { count, ref } = useCountUp(end, 2200)
-  return (
-    <div ref={ref} className="text-center">
-      <div className="text-2xl md:text-3xl font-black text-navy-900">
-        {count.toLocaleString()}
-        <span className="text-royal-500">{suffix}</span>
-      </div>
-      <div className="text-[10px] md:text-xs text-gray-500 mt-0.5">{label}</div>
-    </div>
-  )
-}
-
-/* ─── Resolution Flow ─── */
 const flowSteps = [
   {
-    icon: Phone,
+    num: '01',
     title: '無料相談',
-    desc: '電話・LINE・フォームからお気軽に。初回から弁護士が直接対応します。',
-    color: 'from-royal-500 to-royal-600',
+    desc: '電話・LINE・フォームからお気軽に。初回から弁護士が直接対応いたします。',
   },
   {
-    icon: FileCheck,
+    num: '02',
     title: '調査・資料収集',
-    desc: '事故状況・医療記録を精査し、最適な戦略を立案。',
-    color: 'from-blue-500 to-blue-600',
+    desc: '事故状況・医療記録を精査し、最適な戦略を立案します。',
   },
   {
-    icon: MessageSquare,
+    num: '03',
     title: '示談交渉',
-    desc: '弁護士基準で算定し、保険会社の低額提示を徹底的に是正。',
-    color: 'from-purple-500 to-purple-600',
+    desc: '弁護士基準で算定し、保険会社の低額提示を徹底的に是正します。',
   },
   {
-    icon: Gavel,
+    num: '04',
     title: '訴訟・解決',
     desc: '示談が不成立の場合は訴訟も辞さず。全力で適正額を勝ち取ります。',
-    color: 'from-emerald-500 to-emerald-600',
   },
 ]
 
 const results = [
-  { category: '後遺障害14級', before: '75万円', after: '320万円', increase: '4.3倍', barWidth: '85%' },
-  { category: '後遺障害12級', before: '250万円', after: '830万円', increase: '3.3倍', barWidth: '70%' },
-  { category: '死亡事故', before: '3,500万円', after: '7,200万円', increase: '2.1倍', barWidth: '55%' },
+  { category: '後遺障害14級', before: '75万円', after: '320万円', increase: '4.3倍' },
+  { category: '後遺障害12級', before: '250万円', after: '830万円', increase: '3.3倍' },
+  { category: '死亡事故', before: '3,500万円', after: '7,200万円', increase: '2.1倍' },
 ]
-
-const benefits = [
-  { text: '着手金0円・完全成功報酬', icon: ShieldCheck },
-  { text: '全国対応・オンライン相談OK', icon: HeartHandshake },
-  { text: '保険会社との交渉は全てお任せ', icon: MessageSquare },
-  { text: '治療中からサポート開始', icon: Clock },
-]
-
-const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
-  visible: (i = 0) => ({
-    opacity: 1,
-    y: 0,
-    transition: { delay: i * 0.1, duration: 0.5, ease: 'easeOut' },
-  }),
-}
 
 export default function IndividualSection() {
   const { setShowContact } = useApp()
 
   return (
-    <section className="bg-white py-16 md:py-28 overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 md:px-12 lg:px-16">
-        {/* ─── Header ─── */}
-        <div className="flex flex-col md:flex-row md:items-center md:gap-16 mb-16 md:mb-20">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-50px' }}
-            variants={fadeUp}
-            className="flex-1 md:max-w-xl"
-          >
-            <p className="text-royal-500 text-xs md:text-sm font-semibold tracking-widest uppercase mb-2">
-              Traffic Accident Support
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-navy-900 leading-tight mb-4">
-              交通事故被害者を
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-royal-500 to-royal-400">
-                全力でサポート
-              </span>
-            </h2>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-              保険会社の提示額に納得できていますか？
-              当事務所では平均して提示額の
-              <strong className="text-navy-900">2〜4倍</strong>の増額を実現しています。
-            </p>
-
-            <div className="grid grid-cols-2 gap-2.5">
-              {benefits.map(({ text, icon: Icon }) => (
-                <div
-                  key={text}
-                  className="flex items-center gap-2 bg-royal-50 rounded-xl px-3 py-2.5 border border-royal-100"
-                >
-                  <Icon className="w-4 h-4 text-royal-500 shrink-0" />
-                  <span className="text-xs font-medium text-royal-700">{text}</span>
-                </div>
-              ))}
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeUp}
-            className="hidden md:block flex-1 max-w-lg"
-          >
-            <div className="relative">
-              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-royal-500/10 border border-gray-100">
-                <img
-                  src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=800&h=500&fit=crop"
-                  alt="信頼感のある弁護士 — 依頼者と面談するシーン"
-                  className="w-full h-64 lg:h-72 object-cover"
-                />
-              </div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="absolute -bottom-4 -left-4 bg-white rounded-xl p-4 shadow-xl border border-gray-100"
-              >
-                <div className="text-royal-500 text-[10px] font-semibold tracking-widest uppercase">
-                  解決実績
-                </div>
-                <div className="text-navy-900 text-2xl font-black">3,000+</div>
-              </motion.div>
-            </div>
-          </motion.div>
-        </div>
-
-        {/* ═══ Count-up Stats Bar ═══ */}
+    <section className="bg-white overflow-hidden">
+      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+        {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          variants={fadeUp}
-          className="bg-royal-50 border border-royal-100 rounded-2xl p-6 md:p-8 mb-16 md:mb-20"
+          viewport={{ once: true, margin: '-80px' }}
+          variants={fade}
+          className="py-24 md:py-40"
         >
-          <div className="grid grid-cols-3 divide-x divide-royal-200">
-            <CountStat end={3000} suffix="件+" label="解決実績" />
-            <CountStat end={98} suffix="%" label="依頼者満足度" />
-            <CountStat end={93} suffix="%" label="後遺障害認定率" />
-          </div>
+          <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+            For Individuals
+          </p>
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.4] mb-6">
+            交通事故被害者を、
+            <br />
+            全力で守り抜く。
+          </h2>
+          <div className="divider-gold" />
+          <p className="text-stone-500 text-sm md:text-base leading-[2] mt-8 max-w-xl">
+            保険会社の提示額に納得できていますか？
+            当事務所では平均して提示額の2〜4倍の増額を実現しています。
+          </p>
         </motion.div>
 
-        {/* ═══ Bento Grid — Resolution Flow ═══ */}
-        <div className="mb-20 md:mb-24">
-          <motion.h3
+        {/* Resolution Flow */}
+        <div className="border-t border-stone-100 py-24 md:py-32">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeUp}
-            className="text-lg md:text-2xl font-bold text-navy-900 mb-8 md:mb-10"
+            variants={fade}
+            className="mb-16"
           >
-            ご相談から解決までの<span className="text-royal-500">流れ</span>
-          </motion.h3>
+            <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+              Process
+            </p>
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900">
+              ご相談から解決までの流れ
+            </h3>
+          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-            {flowSteps.map(({ icon: Icon, title, desc, color }, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+            {flowSteps.map(({ num, title, desc }, i) => (
               <motion.div
-                key={title}
+                key={num}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i}
-                variants={fadeUp}
+                variants={fade}
               >
-                <BentoBlue className="h-full">
-                  <div className="relative mb-4">
-                    <div
-                      className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${color} flex items-center justify-center shadow-lg`}
-                    >
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div className="absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full bg-royal-500 text-white text-xs font-bold flex items-center justify-center shadow">
-                      {i + 1}
-                    </div>
-                  </div>
-                  <h4 className="font-bold text-navy-900 text-base mb-1.5">
-                    {title}
-                  </h4>
-                  <p className="text-gray-500 text-sm leading-relaxed">{desc}</p>
-                </BentoBlue>
+                <span className="font-serif text-warm-300 text-2xl md:text-3xl font-light">
+                  {num}
+                </span>
+                <h4 className="text-stone-900 text-base font-medium mt-3 mb-2">
+                  {title}
+                </h4>
+                <p className="text-stone-500 text-sm leading-[2]">{desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* ═══ Results Dashboard ═══ */}
-        <div className="mb-16 md:mb-20">
-          <motion.h3
+        {/* Results */}
+        <div className="border-t border-stone-100 py-24 md:py-32">
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            variants={fadeUp}
-            className="text-lg md:text-2xl font-bold text-navy-900 mb-8"
+            variants={fade}
+            className="mb-16"
           >
-            解決実績<span className="text-royal-500">ハイライト</span>
-          </motion.h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-            {results.map(({ category, before, after, increase, barWidth }, i) => (
+            <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+              Results
+            </p>
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900">
+              解決実績
+            </h3>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+            {results.map(({ category, before, after, increase }, i) => (
               <motion.div
                 key={category}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true }}
                 custom={i}
-                variants={fadeUp}
+                variants={fade}
+                className="border-t border-stone-200 pt-6"
               >
-                <BentoBlue className="h-full">
-                  <span className="text-xs text-royal-500 font-semibold bg-royal-50 px-2.5 py-1 rounded-full">
-                    {category}
-                  </span>
-                  <div className="mt-5 space-y-3">
-                    <div>
-                      <div className="text-[10px] text-gray-400 mb-0.5">
-                        保険会社提示
-                      </div>
-                      <div className="text-sm text-gray-400 line-through">
-                        {before}
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-[10px] text-gray-400 mb-0.5">
-                        最終獲得額
-                      </div>
-                      <div className="text-2xl md:text-3xl font-extrabold text-navy-900">
-                        {after}
-                      </div>
-                    </div>
+                <p className="text-warm-500 text-xs tracking-wider mb-4">{category}</p>
+                <div className="mb-3">
+                  <span className="text-stone-400 text-xs tracking-wider">保険会社提示</span>
+                  <div className="text-stone-400 text-sm line-through mt-1">{before}</div>
+                </div>
+                <div className="mb-4">
+                  <span className="text-stone-400 text-xs tracking-wider">最終獲得額</span>
+                  <div className="font-serif text-2xl md:text-3xl text-stone-900 font-light mt-1">
+                    {after}
                   </div>
-                  <div className="mt-4 h-2 bg-gray-100 rounded-full overflow-hidden">
-                    <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: barWidth }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: 0.3 + i * 0.1,
-                        duration: 0.8,
-                        ease: 'easeOut',
-                      }}
-                      className="h-full bg-gradient-to-r from-royal-500 to-royal-400 rounded-full"
-                    />
-                  </div>
-                  <div className="mt-3 flex items-center gap-1.5">
-                    <BadgeCheck className="w-4 h-4 text-accent-green" />
-                    <span className="text-accent-green text-sm font-bold">
-                      {increase} に増額
-                    </span>
-                  </div>
-                </BentoBlue>
+                </div>
+                <span className="text-accent-green text-sm font-medium">
+                  {increase}に増額
+                </span>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* ─── CTA ─── */}
+        {/* Image */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          variants={fadeUp}
-          className="text-center"
+          variants={fade}
+          className="mb-24 md:mb-32"
         >
-          <motion.button
-            whileHover={{ scale: 1.04 }}
-            whileTap={{ scale: 0.96 }}
+          <div className="overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&h=500&fit=crop"
+              alt="信頼感のある弁護士"
+              className="w-full h-48 md:h-72 lg:h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          variants={fade}
+          className="text-center pb-24 md:pb-40"
+        >
+          <button
             onClick={() => setShowContact(true)}
-            className="inline-flex items-center gap-2 bg-gradient-to-r from-royal-500 to-royal-400 text-white px-10 py-4 md:px-12 md:py-5 rounded-xl font-bold text-sm md:text-base shadow-xl shadow-royal-500/20 hover:shadow-royal-500/40 transition-shadow"
+            className="group inline-flex items-center gap-3 text-stone-900 hover:text-warm-700 transition-colors"
           >
-            無料相談はこちら
-            <ArrowRight className="w-4 h-4" />
-          </motion.button>
-          <p className="text-gray-400 text-xs mt-3 flex items-center justify-center gap-1">
-            <Clock className="w-3 h-3" />
+            <span className="font-serif text-lg tracking-wider font-light">
+              無料相談はこちら
+            </span>
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+          <p className="text-stone-400 text-xs mt-4 tracking-wider">
             24時間受付・土日祝も対応
           </p>
         </motion.div>

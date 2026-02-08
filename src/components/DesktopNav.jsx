@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Shield, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 
 const navLinks = [
   { id: 'home', label: 'ホーム', href: '#hero' },
-  { id: 'startup', label: 'スタートアップ支援', href: '#startup' },
+  { id: 'startup', label: 'スタートアップ', href: '#startup' },
   { id: 'individual', label: '個人のお客様', href: '#individual' },
   { id: 'team', label: 'チーム', href: '#team' },
 ]
@@ -13,7 +13,6 @@ const navLinks = [
 export default function DesktopNav() {
   const { segment, setSegment, setShowContact, activeTab, setActiveTab } =
     useApp()
-  const isStartup = segment === 'startup'
   const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
@@ -35,85 +34,58 @@ export default function DesktopNav() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+      className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-700 ${
         scrolled
-          ? isStartup
-            ? 'glass shadow-lg shadow-navy-950/20'
-            : 'glass-light shadow-lg shadow-gray-200/40'
+          ? 'bg-stone-50/90 backdrop-blur-md border-b border-stone-200/50'
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-8 h-16 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center gap-2.5">
-          <div
-            className={`w-9 h-9 rounded-xl flex items-center justify-center transition-colors duration-500 ${
-              isStartup ? 'bg-gold-500' : 'bg-royal-500'
-            }`}
-          >
-            <Shield className="w-5 h-5 text-white" />
-          </div>
-          <span
-            className={`text-lg font-bold tracking-tight transition-colors duration-500 ${
-              isStartup ? 'text-white' : 'text-navy-900'
-            }`}
-          >
-            LEGAL HERO
-          </span>
-        </div>
+      <div className="max-w-6xl mx-auto px-8 lg:px-20 h-16 flex items-center justify-between">
+        {/* Logo — serif text only */}
+        <span className="font-serif text-base tracking-[0.2em] text-stone-800 font-light">
+          LEGAL HERO
+        </span>
 
-        {/* Links */}
-        <nav className="flex items-center gap-1">
+        {/* Nav links */}
+        <nav className="flex items-center gap-8">
           {navLinks.map(({ id, label }) => {
             const isActive = activeTab === id
             return (
               <button
                 key={id}
                 onClick={() => handleNav(id)}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
+                className={`relative text-xs tracking-[0.15em] transition-colors duration-300 pb-0.5 ${
                   isActive
-                    ? isStartup
-                      ? 'text-gold-400'
-                      : 'text-royal-500'
-                    : isStartup
-                      ? 'text-navy-200 hover:text-white'
-                      : 'text-gray-600 hover:text-navy-900'
+                    ? 'text-stone-900'
+                    : 'text-stone-400 hover:text-stone-700'
                 }`}
               >
+                {label}
                 {isActive && (
                   <motion.div
-                    layoutId="desktopNavPill"
-                    className={`absolute inset-0 rounded-lg ${
-                      isStartup ? 'bg-white/5' : 'bg-royal-500/5'
-                    }`}
+                    layoutId="desktopNavLine"
+                    className="absolute bottom-0 left-0 right-0 h-px bg-stone-900"
                     transition={{
                       type: 'spring',
-                      stiffness: 400,
+                      stiffness: 300,
                       damping: 30,
                     }}
                   />
                 )}
-                <span className="relative z-10">{label}</span>
               </button>
             )
           })}
         </nav>
 
         {/* CTA */}
-        <motion.button
-          whileHover={{ scale: 1.03 }}
-          whileTap={{ scale: 0.97 }}
+        <button
           onClick={() => setShowContact(true)}
-          className={`flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all duration-500 ${
-            isStartup
-              ? 'bg-gold-500 text-navy-950 hover:shadow-lg hover:shadow-gold-500/20'
-              : 'bg-royal-500 text-white hover:shadow-lg hover:shadow-royal-500/20'
-          }`}
+          className="group flex items-center gap-2 text-warm-700 hover:text-warm-900 transition-colors"
         >
-          無料相談
-          <ArrowRight className="w-3.5 h-3.5" />
-        </motion.button>
+          <span className="text-xs tracking-wider font-medium">無料相談</span>
+          <ArrowRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+        </button>
       </div>
     </motion.header>
   )

@@ -12,8 +12,8 @@ import ContactModal from './components/ContactModal'
 
 const sectionVariants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5 } },
-  exit: { opacity: 0, transition: { duration: 0.3 } },
+  visible: { opacity: 1, transition: { duration: 0.8, ease: [0.25, 0.1, 0.25, 1] } },
+  exit: { opacity: 0, transition: { duration: 0.4 } },
 }
 
 export default function App() {
@@ -21,15 +21,12 @@ export default function App() {
 
   return (
     <div className="relative">
-      {/* Desktop glassmorphism navigation */}
       <DesktopNav />
 
-      {/* Hero — always visible */}
       <div id="hero">
         <HeroSection />
       </div>
 
-      {/* Content sections with page transition */}
       <AnimatePresence mode="wait">
         {segment === 'startup' ? (
           <motion.div
@@ -62,7 +59,6 @@ export default function App() {
 
       <Footer />
 
-      {/* Overlays & Navigation */}
       <FloatingCTA />
       <BottomNav />
       <ContactModal />

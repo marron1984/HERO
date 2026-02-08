@@ -1,9 +1,20 @@
 @import "tailwindcss";
 
 @theme {
+  --color-stone-950: #1a1a1a;
+  --color-stone-900: #262626;
+  --color-stone-800: #3a3a3a;
+  --color-stone-700: #4a4a4a;
+  --color-stone-600: #5c5c5c;
+  --color-stone-500: #737373;
+  --color-stone-400: #a3a3a3;
+  --color-stone-300: #c4c0b8;
+  --color-stone-200: #e5e2dd;
+  --color-stone-100: #f0eeea;
+  --color-stone-50: #fafaf8;
+
   --color-navy-950: #060a14;
   --color-navy-900: #0F172A;
-  --color-navy-850: #131f38;
   --color-navy-800: #182444;
   --color-navy-700: #1e3054;
   --color-navy-600: #27406e;
@@ -12,69 +23,53 @@
   --color-navy-300: #7da0dc;
   --color-navy-200: #afc6ee;
   --color-navy-100: #dbe5f7;
-  --color-navy-50: #f1f5fc;
 
-  --color-gold-600: #a8882c;
-  --color-gold-500: #c9a84c;
-  --color-gold-400: #d4b95f;
-  --color-gold-300: #e0cb7e;
-  --color-gold-200: #ecdda6;
-  --color-gold-100: #f6efd0;
-
-  --color-electric-500: #3b82f6;
-  --color-electric-400: #60a5fa;
-  --color-electric-300: #93c5fd;
-
-  --color-royal-700: #1a3fa0;
-  --color-royal-600: #1e4dbf;
-  --color-royal-500: #2563eb;
-  --color-royal-400: #5b8def;
-  --color-royal-300: #93b4f5;
-  --color-royal-200: #bdd3fa;
-  --color-royal-100: #dfeafd;
-  --color-royal-50: #f0f5ff;
+  --color-warm-900: #2c2418;
+  --color-warm-800: #4a3c28;
+  --color-warm-700: #6b5a3e;
+  --color-warm-600: #8b7656;
+  --color-warm-500: #b8977e;
+  --color-warm-400: #c9ae94;
+  --color-warm-300: #d9c5b0;
+  --color-warm-200: #e8ddd0;
+  --color-warm-100: #f4efe8;
+  --color-warm-50: #faf8f5;
 
   --color-accent-green: #10b981;
-  --color-accent-red: #ef4444;
+  --color-accent-red: #dc2626;
 
-  --font-sans: 'Inter', 'Noto Sans JP', system-ui, sans-serif;
+  --font-serif: 'Noto Serif JP', 'Georgia', serif;
+  --font-sans: 'Noto Sans JP', 'Inter', system-ui, sans-serif;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; -webkit-tap-highlight-color: transparent; }
 body {
   font-family: var(--font-sans);
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  background: #0F172A;
-  color: #e2e8f0;
+  background: #fafaf8;
+  color: #4a4a4a;
+  letter-spacing: 0.02em;
+  line-height: 1.8;
 }
 #root { min-height: 100dvh; }
 
-/* ─── Glassmorphism ─── */
-.glass       { background: rgba(255,255,255,0.04); backdrop-filter: blur(24px) saturate(180%); -webkit-backdrop-filter: blur(24px) saturate(180%); border: 1px solid rgba(255,255,255,0.06); }
-.glass-md    { background: rgba(255,255,255,0.07); backdrop-filter: blur(20px) saturate(160%); -webkit-backdrop-filter: blur(20px) saturate(160%); border: 1px solid rgba(255,255,255,0.10); }
-.glass-light { background: rgba(255,255,255,0.72); backdrop-filter: blur(20px) saturate(180%); -webkit-backdrop-filter: blur(20px) saturate(180%); border: 1px solid rgba(255,255,255,0.5); }
-.glass-white { background: rgba(255,255,255,0.92); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.6); }
-
 /* ─── Scrollbar ─── */
-::-webkit-scrollbar { width: 4px; }
+::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 999px; }
-.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-.hide-scrollbar::-webkit-scrollbar { display: none; }
+::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 999px; }
 
-/* ─── Bento card hover glow ─── */
-.bento-glow { position: relative; overflow: hidden; }
-.bento-glow::before {
-  content: '';
-  position: absolute; inset: 0;
-  opacity: 0; transition: opacity 0.4s ease;
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(201,168,76,0.06), transparent 40%);
-  pointer-events: none; z-index: 1;
+/* ─── Elegant divider ─── */
+.divider {
+  width: 48px;
+  height: 1px;
+  background: #c4c0b8;
 }
-.bento-glow:hover::before { opacity: 1; }
-.bento-glow-blue::before {
-  background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(37,99,235,0.06), transparent 40%);
+.divider-gold {
+  width: 48px;
+  height: 1px;
+  background: #b8977e;
 }
