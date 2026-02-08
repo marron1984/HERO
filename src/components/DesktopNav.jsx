@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Shield, ArrowRight } from 'lucide-react'
 import { useApp } from '../context/AppContext'
 
@@ -11,7 +11,8 @@ const navLinks = [
 ]
 
 export default function DesktopNav() {
-  const { segment, setSegment, setShowContact, activeTab, setActiveTab } = useApp()
+  const { segment, setSegment, setShowContact, activeTab, setActiveTab } =
+    useApp()
   const isStartup = segment === 'startup'
   const [scrolled, setScrolled] = useState(false)
 
@@ -25,7 +26,8 @@ export default function DesktopNav() {
     if (id === 'startup') setSegment('startup')
     if (id === 'individual') setSegment('individual')
     setActiveTab(id)
-    const target = id === 'startup' || id === 'individual' ? id : id === 'home' ? 'hero' : id
+    const target =
+      id === 'startup' || id === 'individual' ? id : id === 'home' ? 'hero' : id
     document.getElementById(target)?.scrollIntoView({ behavior: 'smooth' })
   }
 
@@ -37,7 +39,7 @@ export default function DesktopNav() {
       className={`hidden md:block fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? isStartup
-            ? 'glass-dark shadow-lg shadow-navy-950/20'
+            ? 'glass shadow-lg shadow-navy-950/20'
             : 'glass-light shadow-lg shadow-gray-200/40'
           : 'bg-transparent'
       }`}
@@ -54,9 +56,7 @@ export default function DesktopNav() {
           </div>
           <span
             className={`text-lg font-bold tracking-tight transition-colors duration-500 ${
-              isStartup
-                ? scrolled ? 'text-white' : 'text-white'
-                : scrolled ? 'text-navy-900' : 'text-navy-900'
+              isStartup ? 'text-white' : 'text-navy-900'
             }`}
           >
             LEGAL HERO
@@ -73,10 +73,12 @@ export default function DesktopNav() {
                 onClick={() => handleNav(id)}
                 className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-300 ${
                   isActive
-                    ? isStartup ? 'text-gold-400' : 'text-royal-500'
+                    ? isStartup
+                      ? 'text-gold-400'
+                      : 'text-royal-500'
                     : isStartup
-                      ? scrolled ? 'text-navy-200 hover:text-white' : 'text-navy-200 hover:text-white'
-                      : scrolled ? 'text-gray-600 hover:text-navy-900' : 'text-gray-600 hover:text-navy-900'
+                      ? 'text-navy-200 hover:text-white'
+                      : 'text-gray-600 hover:text-navy-900'
                 }`}
               >
                 {isActive && (
@@ -85,7 +87,11 @@ export default function DesktopNav() {
                     className={`absolute inset-0 rounded-lg ${
                       isStartup ? 'bg-white/5' : 'bg-royal-500/5'
                     }`}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    transition={{
+                      type: 'spring',
+                      stiffness: 400,
+                      damping: 30,
+                    }}
                   />
                 )}
                 <span className="relative z-10">{label}</span>
