@@ -45,48 +45,64 @@ export default function IndividualSection() {
 
   return (
     <section className="bg-white overflow-hidden">
-      <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-20">
+      {/* Full-bleed opening image — ドーンと */}
+      <motion.div
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        variants={fade}
+      >
+        <div className="w-full overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1800&h=900&fit=crop"
+            alt="信頼感のある弁護士 — 依頼者との面談シーン"
+            className="w-full h-[40vh] md:h-[50vh] lg:h-[55vh] object-cover"
+          />
+        </div>
+      </motion.div>
+
+      <div className="max-w-6xl mx-auto px-6 md:px-16 lg:px-24">
         {/* Header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
           variants={fade}
-          className="py-24 md:py-40"
+          className="py-28 md:py-44"
         >
-          <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+          <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
             For Individuals
           </p>
-          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.4] mb-6">
+          <h2 className="font-serif text-2xl sm:text-3xl md:text-4xl font-light text-stone-900 leading-[1.6] tracking-[0.04em] mb-8">
             交通事故被害者を、
             <br />
             全力で守り抜く。
           </h2>
           <div className="divider-gold" />
-          <p className="text-stone-500 text-sm md:text-base leading-[2] mt-8 max-w-xl">
+          <p className="text-stone-500 text-sm md:text-base leading-[2.2] tracking-[0.05em] mt-10 max-w-xl">
             保険会社の提示額に納得できていますか？
             当事務所では平均して提示額の2〜4倍の増額を実現しています。
           </p>
         </motion.div>
 
         {/* Resolution Flow */}
-        <div className="border-t border-stone-100 py-24 md:py-32">
+        <div className="border-t border-stone-100 py-28 md:py-40">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-16"
+            className="mb-20"
           >
-            <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+            <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
               Process
             </p>
-            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900">
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em]">
               ご相談から解決までの流れ
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-10">
             {flowSteps.map(({ num, title, desc }, i) => (
               <motion.div
                 key={num}
@@ -96,36 +112,36 @@ export default function IndividualSection() {
                 custom={i}
                 variants={fade}
               >
-                <span className="font-serif text-warm-300 text-2xl md:text-3xl font-light">
+                <span className="font-serif text-warm-300 text-3xl md:text-4xl font-light tracking-wider">
                   {num}
                 </span>
-                <h4 className="text-stone-900 text-base font-medium mt-3 mb-2">
+                <h4 className="text-stone-900 text-base font-medium tracking-[0.08em] mt-4 mb-3">
                   {title}
                 </h4>
-                <p className="text-stone-500 text-sm leading-[2]">{desc}</p>
+                <p className="text-stone-500 text-sm leading-[2.2] tracking-[0.05em]">{desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
 
         {/* Results */}
-        <div className="border-t border-stone-100 py-24 md:py-32">
+        <div className="border-t border-stone-100 py-28 md:py-40">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={fade}
-            className="mb-16"
+            className="mb-20"
           >
-            <p className="text-warm-500 text-xs tracking-[0.25em] uppercase mb-6">
+            <p className="text-warm-500 text-xs tracking-[0.35em] uppercase mb-8">
               Results
             </p>
-            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900">
+            <h3 className="font-serif text-xl md:text-2xl font-light text-stone-900 tracking-[0.04em]">
               解決実績
             </h3>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16">
             {results.map(({ category, before, after, increase }, i) => (
               <motion.div
                 key={category}
@@ -134,20 +150,20 @@ export default function IndividualSection() {
                 viewport={{ once: true }}
                 custom={i}
                 variants={fade}
-                className="border-t border-stone-200 pt-6"
+                className="border-t border-stone-200 pt-8"
               >
-                <p className="text-warm-500 text-xs tracking-wider mb-4">{category}</p>
-                <div className="mb-3">
-                  <span className="text-stone-400 text-xs tracking-wider">保険会社提示</span>
-                  <div className="text-stone-400 text-sm line-through mt-1">{before}</div>
-                </div>
+                <p className="text-warm-500 text-xs tracking-[0.2em] mb-6">{category}</p>
                 <div className="mb-4">
-                  <span className="text-stone-400 text-xs tracking-wider">最終獲得額</span>
-                  <div className="font-serif text-2xl md:text-3xl text-stone-900 font-light mt-1">
+                  <span className="text-stone-400 text-xs tracking-[0.15em]">保険会社提示</span>
+                  <div className="text-stone-400 text-sm line-through mt-2 tracking-wider">{before}</div>
+                </div>
+                <div className="mb-5">
+                  <span className="text-stone-400 text-xs tracking-[0.15em]">最終獲得額</span>
+                  <div className="font-serif text-3xl md:text-4xl text-stone-900 font-light mt-2 tracking-wider">
                     {after}
                   </div>
                 </div>
-                <span className="text-accent-green text-sm font-medium">
+                <span className="text-accent-green text-sm font-medium tracking-wider">
                   {increase}に増額
                 </span>
               </motion.div>
@@ -155,21 +171,19 @@ export default function IndividualSection() {
           </div>
         </div>
 
-        {/* Image */}
+        {/* Second big image */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="mb-24 md:mb-32"
+          className="-mx-6 md:-mx-16 lg:-mx-24 mb-28 md:mb-36"
         >
-          <div className="overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1400&h=500&fit=crop"
-              alt="信頼感のある弁護士"
-              className="w-full h-48 md:h-72 lg:h-80 object-cover grayscale hover:grayscale-0 transition-all duration-700"
-            />
-          </div>
+          <img
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1800&h=800&fit=crop"
+            alt="握手 — 解決と信頼の象徴"
+            className="w-full h-[35vh] md:h-[45vh] lg:h-[50vh] object-cover"
+          />
         </motion.div>
 
         {/* CTA */}
@@ -178,18 +192,18 @@ export default function IndividualSection() {
           whileInView="visible"
           viewport={{ once: true }}
           variants={fade}
-          className="text-center pb-24 md:pb-40"
+          className="text-center pb-28 md:pb-44"
         >
           <button
             onClick={() => setShowContact(true)}
-            className="group inline-flex items-center gap-3 text-stone-900 hover:text-warm-700 transition-colors"
+            className="group inline-flex items-center gap-4 text-stone-900 hover:text-warm-700 transition-colors"
           >
-            <span className="font-serif text-lg tracking-wider font-light">
+            <span className="font-serif text-lg tracking-[0.15em] font-light">
               無料相談はこちら
             </span>
-            <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+            <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform" />
           </button>
-          <p className="text-stone-400 text-xs mt-4 tracking-wider">
+          <p className="text-stone-400 text-xs mt-6 tracking-[0.2em]">
             24時間受付・土日祝も対応
           </p>
         </motion.div>
